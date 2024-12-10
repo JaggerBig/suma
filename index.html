@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMA</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- 主页 -->
+    <section class="section" id="home">
+        <div class="home-content">
+            <h1 class="main-title">SUMA</h1>
+            <div class="intro-text">
+                <p>探索无限 连接自然</p>
+            </div>
+            <button class="next-btn">NEXT</button>
+        </div>
+        <div class="scroll-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 第一屏：品牌故事 -->
+    <section class="section brandstory" id="brandstory">
+        <div class="brandstory-content">
+            <div class="brandstory-image">
+                <img src="images/brand-story.jpg" alt="Brand Story">
+            </div>
+            <div class="brandstory-text">
+                <h2 class="main-title">品牌故事</h2>
+                <p class="subtitle">SUMA的故事始于对大自然无尽的向往与敬畏。我们相信，每一次踏入户外的旅程，都是一次心灵的洗礼，一次对生命意义的深刻思考。因此，SUMA不仅仅是一个品牌，它是一种生活态度，一种对自由、勇气与责任的追求。在这里，每个人都能找到属于自己的山巅，与自然对话，发现生活的无限可能。</p>
+                <button class="next-btn">NEXT</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第二屏：改为slogan -->
+    <section class="section slogan" id="slogan">
+        <div class="slogan-content">
+            <div class="slogan-text">
+                <h2 class="main-title">与自然同行</h2>
+                <p class="subtitle">在钢筋水泥的丛林之外，有一片广阔无垠的天地，正等待着你的脚步去丈量，你的心灵去探索。这不仅仅是一场旅行，而是一次灵魂的觉醒，一次与自然界的亲密对话。我们倡导绿色出行，尊重每一寸土地，每一片叶子，用我们的行动去守护这片给予我们生命与灵感的家园。在SUMA的陪伴下，你将学会倾听自然的声音，感受它的韵律，与它共同呼吸，共同生长。</p>
+                <button class="next-btn">NEXT</button>
+            </div>
+            <div class="slogan-image">
+                <img src="images/slogan.jpg" alt="Slogan">
+            </div>
+        </div>
+    </section>
+
+    <!-- 第三屏 -->
+    <section class="section attitude" id="attitude">
+        <div class="attitude-content">
+            <div class="attitude-image">
+                <img src="images/attitude.jpg" alt="Attitude">
+            </div>
+            <div class="attitude-text">
+                <div class="subtitle">探索 · 勇气 · 责任</div>
+                <button class="next-btn">NEXT</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最后一屏 -->
+    <section class="section" id="subscribe">
+        <h2 class="main-title">联系我们</h2>
+        <form class="subscribe-form" id="contactForm">
+            <input type="text" class="subscribe-input" name="name" placeholder="输入您的姓名" required>
+            <input type="email" class="subscribe-input" name="email" placeholder="输入您的邮箱" required>
+            <button type="submit" class="subscribe-button">提交</button>
+        </form>
+    </section>
+
+    <!-- 固定的社交媒体图标 -->
+    <div class="social-icons">
+        <a href="#" class="social-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2zm4 8h-2V11h2v6zm0-8h-2V7h2v2z" fill="currentColor"/>
+            </svg>
+        </a>
+        <a href="#" class="social-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.46 7.12l-2.78 1.15c-.51-.36-1.12-.57-1.79-.57-1.69 0-3.06 1.37-3.06 3.06 0 .67.21 1.28.57 1.79L7.12 17.46c-.39-.27-.71-.59-.98-.98l2.78-1.15c.51.36 1.12.57 1.79.57 1.69 0 3.06-1.37 3.06-3.06 0-.67-.21-1.28-.57-1.79l2.78-1.15c.39.27.71.59.98.98z" fill="currentColor"/>
+            </svg>
+        </a>
+        <a href="#" class="social-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.92 14.2L12 13.2l-2.92 3L12 7.2l2.92 9z" fill="currentColor"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- 添加JavaScript代码 -->
+    <script>
+        // Next按钮点击事件
+        const nextButtons = document.querySelectorAll('.next-btn');
+        const sections = ['#brandstory', '#slogan', '#attitude', '#subscribe'];
+        
+        nextButtons.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                document.querySelector(sections[index]).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // 表单提交处理
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                timestamp: new Date().toLocaleString('zh-CN')
+            };
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert('提交成功！');
+                    e.target.reset(); // 清空表单
+                } else {
+                    throw new Error('提交失败');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('提交失败，请稍后重试');
+            }
+        });
+    </script>
+</body>
+</html> 
