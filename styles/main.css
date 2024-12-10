@@ -1,0 +1,491 @@
+/* 全局样式 */
+:root {
+  --text-color: #000000;
+  --bg-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: url('../images/home-bg.jpg') center center fixed;
+  background-size: cover;
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* 主要内容区块 */
+.section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+  color: white;
+}
+
+/* 为每个section添加半透明遮罩 */
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* 确保内容在遮罩层上方 */
+.section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* 首页标题样式 */
+.main-title {
+  font-size: clamp(4rem, 15vw, 8rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.subtitle {
+  display: none;
+}
+
+/* 下一页箭头 */
+.scroll-arrow {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* brandstory部分 */
+.brandstory {
+  background-color: #f5f5f5;
+}
+
+/* slogan部分 */
+.slogan {
+  text-align: left;
+  margin: 0 auto;
+}
+
+/* 社交媒体图标 */
+.social-icons {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  z-index: 100;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  color: white;
+}
+
+.social-icon:hover {
+  opacity: 1;
+}
+
+/* 订阅表单 */
+.subscribe-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.subscribe-input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+}
+
+.subscribe-button {
+  width: 100%;
+  padding: 1rem;
+  background: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.subscribe-button:hover {
+  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+/* 响应式设置 */
+@media (max-width: 768px) {
+  .section {
+    padding: 1rem;
+  }
+  
+  .social-icons {
+    bottom: 1rem;
+    right: 1rem;
+  }
+} 
+
+/* 为所有section设置相同的背景图片 */
+#home,
+#brandstory,
+#slogan,
+#attidude,
+#subscribe {
+  background: none;
+} 
+
+/* 首页内容容器 */
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* 介绍文本样式 */
+.intro-text {
+  margin: 2rem 0;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+}
+
+.intro-text p {
+  margin: 0.5rem 0;
+}
+
+/* Next按钮样式 */
+.next-btn {
+  width: 120px;
+  height: 45px;
+  padding: 0;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 调整主标题位置 */
+.main-title {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+} 
+
+/* 修改主页和最后一屏的遮罩透明度 */
+#home::before,
+#subscribe::before {
+  background-color: rgba(0, 0, 0, 0.3); /* 降低遮罩透明度，原来是 0.5 */
+}
+
+/* 保持其他部分的遮罩不变 */
+#brandstory::before,
+#slogan::before {
+  background-color: rgba(0, 0, 0, 0.5);
+} 
+
+/* brandstory部分样式调整 */
+.brandstory-content {
+  display: flex;
+  align-items: center;
+  max-width: 2000px;
+  margin:0 auto;
+  padding: 0 2rem;
+  gap: 4rem;
+}
+
+.brandstory-image {
+  flex: 1;
+  height: 80%;
+  width: 100%;
+}
+
+.slogan-content {
+  display: flex;
+  align-items: center;
+  max-width: 2000px;
+  margin:0 auto;
+  padding: 0 2rem;
+  gap: 4rem;
+}
+
+.slogan-image {
+  flex: 1;
+  height: 80%;
+  width: 100%;
+  margin-right: 4rem;
+}
+
+.slogan-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slogan-text {
+  flex: 1;
+  text-align: left;
+  max-width: 30%;
+}
+
+.brandstory-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.brandstory-text {
+  flex: 1;
+  text-align: left;
+  max-width: 30%;
+}
+
+/* 调整品牌故事标题大小 */
+.brandstory .main-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  position: relative;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.brandstory .subtitle {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  opacity: 0.8;
+  margin-right: 4rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .brandstory-content {
+    padding: 0 2rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .brandstory-image {
+    height: 40vh;
+  }
+  
+  .brandstory-text {
+    text-align: center;
+  }
+  
+  .brandstory .main-title {
+    text-align: center;
+  }
+} 
+
+/* 添加新的样式 */
+.slogan .brandstory-content {
+    display: flex;
+    align-items: center;
+    max-width: 2000px;
+    margin:0 auto;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+/* 确保第三屏的标题和文字样式与第二屏一致 */
+.slogan .main-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  position: relative;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.slogan .subtitle {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  opacity: 0.8;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .slogan .brandstory-content {
+    flex-direction: column;
+  }
+  
+  .slogan .main-title {
+    text-align: center;
+  }
+  
+  .slogan .brandstory-text {
+    text-align: center;
+  }
+} 
+
+/* 为attitude部分添加背景和遮罩 */
+#attitude {
+  text-align: left;
+  margin: 0 auto;
+}
+
+#attitude::before {
+  background-color: rgba(0, 0, 0, 0.5); /* 改为与brandstory相同的透明度 */
+}
+
+/* 调整attitude部分的标题大小 */
+.attitude .main-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.attitude-content {
+  display: flex;
+  align-items: center;
+  max-width: 2000px;
+  margin:0 auto;
+  padding: 0 2rem;
+  gap: 4rem;
+}
+
+.attitude-image {
+  flex: 1;
+  height: 80%;
+  width: 100%;
+  margin-right: 4rem;
+}
+
+.attitude-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sattitude-text {
+  flex: 1;
+  text-align: left;
+  max-width: 30%;
+}
+
+/* 修改主页next按钮位置 */
+.home-content .next-btn {
+    position: relative;
+    margin-top: 2rem;
+    margin-left: auto; /* 居中对齐 */
+    margin-right: auto; /* 居中对齐 */
+}
+
+/* 修改brandstory和slogan部分的next按钮位置 */
+.brandstory .next-btn {
+    position: relative;
+    margin-top: 2rem;
+    margin-right: auto; /* 左对齐 */
+    display: block; /* 使margin-right: auto生效 */
+}
+
+.slogan .next-btn {
+    position: relative;
+    margin-top: 2rem;
+    margin-left: auto; /* 右对齐 */
+    display: block; /* 使margin-left: auto生效 */
+}
+
+/* 修改attitude部分的next按钮位置 */
+.attitude .next-btn {
+    position: relative;
+    margin-top: 2rem;
+    margin-right: auto; /* 左对齐 */
+    margin-left: 0;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .brandstory .next-btn,
+    .slogan .next-btn {
+        margin: 2rem auto; /* 在移动端居中显示 */
+    }
+} 
+
+.attitude .main-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.attitude .subtitle {
+    display: block;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    opacity: 0.8;
+    letter-spacing: 0.2em;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .attitude-content {
+        padding: 0 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .attitude-title {
+        text-align: center;
+    }
+    
+    .attitude .subtitle {
+        text-align: center;
+    }
+} 
