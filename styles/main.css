@@ -432,3 +432,133 @@ body {
         left: 1rem;
     }
 } 
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  /* 主页适配 */
+  #home .main-title {
+    font-size: clamp(3rem, 10vw, 6rem);
+  }
+
+  .home-subtitle {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    padding: 0 1rem;
+  }
+
+  /* 内容区域适配 */
+  .brandstory-content,
+  .slogan-content,
+  .attitude-content {
+    flex-direction: column;
+    padding: 0 1.5rem;
+    gap: 1.5rem;
+    height: auto;
+  }
+
+  /* 图片容器适配 */
+  .brandstory-image,
+  .slogan-image,
+  .attitude-image {
+    height: 40vh;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  /* 文字容器适配 */
+  .brandstory-text,
+  .slogan-text,
+  .attitude-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  /* 标题适配 */
+  .main-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  /* 副标题适配 */
+  .subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    padding: 0 0.5rem;
+  }
+
+  /* 按钮适配 */
+  .next-btn {
+    margin: 1.5rem auto;
+    width: 100px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  /* 产品页面适配 */
+  .products-content {
+    padding: 1rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .product-item {
+    margin: 0 1rem;
+  }
+
+  .product-item img {
+    height: 200px;
+  }
+
+  /* 联系表单适配 */
+  .subscribe-form {
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  /* 社交图标适配 */
+  .social-icons {
+    bottom: 1rem;
+    right: 1rem;
+    gap: 1rem;
+  }
+
+  /* 返回箭头适配 */
+  .back-arrow {
+    top: 1rem;
+    left: 1rem;
+    width: 35px;
+    height: 35px;
+  }
+
+  /* 页面高度适配 */
+  #home {
+    height: 100vh;
+  }
+
+  #brandstory,
+  #slogan,
+  #attitude {
+    height: auto;
+    min-height: 90vh;
+    padding: 2rem 0;
+  }
+
+  #subscribe {
+    height: auto;
+    min-height: 50vh;
+  }
+}
+
+/* 更小屏幕的特殊适配 */
+@media (max-width: 480px) {
+  .home-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+  }
+
+  .next-btn {
+    width: 90px;
+    height: 35px;
+    font-size: 0.8rem;
+  }
+} 
